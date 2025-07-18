@@ -1,0 +1,17 @@
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  .typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 4s steps(40, end);
+    animation-fill-mode: forwards;
+  }
+  
+  .bg-gradient-radial-custom {
+    background: radial-gradient(circle at bottom right, rgba(37, 132, 255, 0.233) 0%, rgba(209, 230, 255, 0.5) 25%, rgb(255, 255, 255) 50%);
+  }
+  

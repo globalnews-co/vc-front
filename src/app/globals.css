@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+.bg-gradient-radial-custom {
+  background: radial-gradient(circle at bottom right, rgba(37, 132, 255, 0.233) 0%, rgba(209, 230, 255, 0.5) 25%, rgb(255, 255, 255) 50%);
+}
+
+.swal2-confirm.swal2-styled,
+.swal2-cancel.swal2-styled,
+.swal2-deny.swal2-styled,
+.swal-custom-button {
+  background-color: #10B981 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  opacity: 1 !important; /* Esto es clave para evitar transparencia */
+  background-image: none !important;
+}
+
+/* Hover effects */
+.swal2-confirm.swal2-styled:hover,
+.swal-custom-button:hover {
+  background-color: #059669 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Botón de cancelar específico */
+.swal2-cancel.swal2-styled {
+  background-color: #EF4444 !important;
+  color: white !important;
+}
+
+.swal2-cancel.swal2-styled:hover {
+  background-color: #DC2626 !important;
+}
+
+/* Popup personalizado */
+.swal-custom-popup {
+  border-radius: 16px !important;
+  border: none !important;
+  max-width: 600px !important;
+}
+
+/* Título personalizado */
+.swal2-title {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #1F2937 !important;
+  margin-bottom: 16px !important;
+}
+
+/* Contenido HTML */
+.swal2-html-container {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  color: #374151 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Container de botones */
+.swal2-actions {
+  gap: 12px !important;
+  margin-top: 24px !important;
+  justify-content: center !important;
+}
+
+/* Evitar que Next.js sobrescriba */
+div[class*="swal2"] button {
+  background-color: #10B981 !important;
+  color: white !important;
+  opacity: 1 !important;
+}
+
+/* Para las alertas de error */
+.swal2-popup.swal2-modal.swal2-icon-error .swal2-confirm {
+  background-color: #EF4444 !important;
+}
+
+.swal2-popup.swal2-modal.swal2-icon-error .swal2-confirm:hover {
+  background-color: #DC2626 !important;
+}
+
+/* Para las alertas de warning */
+.swal2-popup.swal2-modal.swal2-icon-warning .swal2-confirm {
+  background-color: #F59E0B !important;
+}
+
+.swal2-popup.swal2-modal.swal2-icon-warning .swal2-confirm:hover {
+  background-color: #D97706 !important;
+}
+
+/* ========================================
+   ESTILOS ADICIONALES PARA MEJORAR LA EXPERIENCIA
+   ======================================== */
+
+/* Loading spinner personalizado */
+.swal2-loader {
+  border-color: #10B981 transparent #10B981 transparent !important;
+}
+
+/* Input fields en modals */
+.swal2-input {
+  border: 2px solid #E5E7EB !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  font-size: 16px !important;
+  transition: border-color 0.3s ease !important;
+}
+
+.swal2-input:focus {
+  border-color: #10B981 !important;
+  outline: none !important;
+}
+
+/* Backdrop personalizado */
+.swal2-backdrop-show {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* Animaciones suaves */
+.swal2-show {
+  animation: swal2-show 0.3s ease-out !important;
+}
+
+.swal2-show {
+  animation: swal2-show 0.3s ease-out !important;
+}
+
+.swal2-hide {
+  animation: swal2-hide 0.15s ease-in !important;
+}
+
+@keyframes swal2-show {
+  0% {
+    transform: scale(0.8) translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes swal2-hide {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95) translateY(10px);
+    opacity: 0;
+  }
+}

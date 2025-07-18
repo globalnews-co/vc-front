@@ -1,0 +1,63 @@
+'use client';
+
+import { useContext, useEffect } from "react";
+import Bar from "../../components/Bar";
+import ClientFields from "../../components/client/ClientFields";
+import { DataContext } from "src/app/pages/context/DataContext";
+import Modal from "../../components/Modal";
+
+export default function GetClient() {
+  const { isReadOnly, setIsReadOnly, clientData, setClientData, isModalOpen, setIsModalOpen } = useContext(DataContext);
+
+  useEffect(() => {
+    setIsModalOpen(true);
+  }, [setIsModalOpen]);
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleReset = () => {
+    localStorage.removeItem('queryClientData');
+    setClientData({
+      NombreCliente: "",
+      Cliente_ID: "",
+      Nit_Cliente: "",
+      FechaCreacionCliente: "",
+      Direccion: "",
+      Telefono: "",
+      Correo_Electronico: "",
+      Persona_de_Contacto: "",
+      Detalle_Especiales: "",
+      Celular: "",
+      Actividad: "",
+      Pagador: "",
+      Cumpleaños: "",
+      Ciudad: "",
+      Tipo: ""
+    });
+  };
+
+  useEffect(() => {
+    const savedClientData = localStorage.getItem('queryClientData');
+    if (savedClientData) {
+      setClientData(JSON.parse(savedClientData));
+    }
+  }, [setClientData]);
+
+  return (
+    <main className="flex min-h-screen">
+      <Bar />
+      {isModalOpen && <Modal onClose={handleModalClose} queryType="Client" />}
+      <div className="flex-1 flex justify-center items-start p-10">
+        <div className="border p-6 rounded-lg shadow-lg w-full max-w-4xl">
+          <div className="flex justify-between mb-4">
+            <button className="bg-brightBlue m-2 text-white py-2 px-4 rounded" onClick={() => setIsModalOpen(true)}>Consultar Cliente</button>            <button className="bg-red-500 m-2 text-white py-2 px-4 rounded" onClick={handleReset}>Resetear Cliente</button>
+          </div>
+          <ClientFields clientData={clientData} handleChange={() => { }} isReadOnly={isReadOnly} />
+        </div>
+      </div>
+     
+    </main>
+  );
+}
